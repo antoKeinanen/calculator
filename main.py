@@ -1,10 +1,11 @@
+import math
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.gridlayout import GridLayout
 from kivy.config import Config
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.screenmanager import NoTransition
-
+import time
 
 Builder.load_file('calculator.kv')
 
@@ -12,19 +13,22 @@ Config.set('graphics', 'resizable', '0')
 Config.set('graphics', 'width', '400')
 Config.set('graphics', 'height', '650')
 
-calc_str = ""
+calc = []
+disp = []
 shift = False
 alpha = False
-
 
 class Normal(Screen):
     def calculate(self, item, calculation):
         if calculation:
             try:
-                item.ids.entry.text = str(eval(calculation))
-            except Exception as e:
+                _calc = ""
+                for obj in calculation:
+                    _calc += obj
+                item.ids.entry.text = str(eval(_calc))
+            except SyntaxError as e:
                 print(e)
-                item.ids.entry.text = "Error"
+                item.ids.entry.text = "Syntax Error!"
 
 
 class Shift(Screen):
@@ -37,7 +41,7 @@ class Shift(Screen):
                 self.display.text = "Error"
 
 
-class TestApp(App):
+class Main(App):
     def build(self):
         # Create the screen manager
         sm = ScreenManager()
@@ -49,4 +53,4 @@ class TestApp(App):
 
 
 if __name__ == '__main__':
-    TestApp().run()
+    Main().run()
