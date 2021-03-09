@@ -4,6 +4,7 @@
 ![](https://img.shields.io/github/forks/antoKeinanen/calculator)
 ![](https://img.shields.io/github/release/antoKeinanen/calculator) 
 ![](https://img.shields.io/github/issues/antoKeinanen/calculator)
+[![Run on Repl.it](https://repl.it/badge/github/antoKeinanen/calculator)](https://repl.it/github/antoKeinanen/calculator)
 
 ## Installation
 Enter the following commands to in commandline or shell.
